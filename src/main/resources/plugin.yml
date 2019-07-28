@@ -1,0 +1,47 @@
+main: dev.xyze.spigot.teamchat.TeamChat
+
+name: TeamChat
+description: Allows one to chat using Minecraft vanilla scoreboard teams
+version: 0.0.7
+api-version: 1.14
+
+author: zmx
+website: https://xyze.dev
+
+database: false
+
+commands:
+  tc:
+    description: Switch to team chat
+    aliases: ["teamchannel", "teamchat"]
+    usage: /tc
+    permission: teamchat.team
+  gc:
+    description: Switch to global chat
+    aliases: ["globalchannel", "globalchat"]
+    usage: /gc
+    permission: teamchat.global
+  gm:
+    description: Message in global chat no matter what channel you're in
+    aliases: ["globalmessage"]
+    usage: /gm <message>
+    permission: teamchat.global.message
+
+permissions:
+  teamchat.*:
+    description: Gives access to all teamchat commands
+    children:
+      teamchat.team: true
+      teamchat.global: true
+      teamchat.global.message: true
+  teamchat.team:
+    description: Allows one to switch to the teamchat channel
+    default: true
+  teamchat.global:
+    description: Allows one to switch back to the global channel
+    default: true
+  teamchat.global.message:
+    description: Allows one to talk in global channel while in team channel
+    default: true
+    children:
+      teamchat.global: true
