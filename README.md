@@ -6,7 +6,7 @@ This was created in an effort to make the team message experience a bit better b
 Instead of running this:
 > /tm hi  
 > /tm lets go to this base  
-> /tm please
+> /tm please  
 > hey we're going to the village
 
 You can do this:
